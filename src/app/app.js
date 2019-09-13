@@ -1,10 +1,13 @@
-const express = require("express");
+const express = require(`express`);
+const programm = require(`commander`);
 const fs = require(`fs-extra`);
 const path = require(`path`);
 const bodyParser = require("body-parser");
 const { router } = require(`./routes`);
 
-const ROOT_DIR = process.env.ROOT_DIR;
+programm.parse(process.argv);
+
+const ROOT_DIR = programm.dir;
 const app = express();
 
 app.get(`/`, async (req, res) => {
@@ -12,15 +15,11 @@ app.get(`/`, async (req, res) => {
   res.end(fileData);
 });
 
-app.get(`/`, (req, res) => {
-  res.end(`hello`);
-});
-
 app.use(bodyParser.urlencoded({
   extended: true
 }));
 
-app.use(bodyParser.json());;
+app.use(bodyParser.json());
 
 app.use(`/api/repos`, router(ROOT_DIR));
 

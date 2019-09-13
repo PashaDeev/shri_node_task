@@ -6,6 +6,7 @@ const main = require(`./main`);
 const create = require(`./create`);
 const deleteRepository = require(`./delete`);
 const { getCommits } = require(`./commits`);
+const { getCommitDiff } = require(`./commitDiff`);
 
 function mainRout(dir) {
   const rootDir = dir;
@@ -39,12 +40,21 @@ function mainRout(dir) {
   router.get(`/:repositoryId/commits/:commitHash`, async (req, res) => {
     debug(`commit start`);
     const { repositoryId, commitHash } = req.params;
-    // res.write(`fist part ${new Date()} \n`);
     const result = await getCommits(
       path.join(rootDir, repositoryId),
       commitHash
     );
-    // await new Promise(res => setTimeout(() => res(), 1000));
+    await res.json({ msg: result });
+    debug(`commit end`);
+  });
+
+  router.get(`/:repositoryId/commits/:commitHash/diff`, async (req, res) => {
+    debug(`commit diff start`);
+    const { repositoryId, commitHash } = req.params;
+    const result = await getCommitDiff(
+      path.join(rootDir, repositoryId),
+      commitHash
+    );
     await res.json({ msg: result });
     debug(`commit end`);
   });

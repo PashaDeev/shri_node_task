@@ -1,0 +1,21 @@
+{
+  "name": "task_node",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "dev": "cross-env DEBUG=server:* nodemon src/server.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "cross-env": "5.2.1",
+    "debug": "4.1.1",
+    "nodemon": "1.19.2"
+  },
+  "dependencies": {
+    "express": "4.17.1"
+  }
+}

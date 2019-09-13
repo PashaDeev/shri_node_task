@@ -7,6 +7,7 @@ const create = require(`./create`);
 const deleteRepository = require(`./delete`);
 const { getCommits } = require(`./commits`);
 const { getCommitDiff } = require(`./commitDiff`);
+const { getStaff } = require(`./getRepositoryStaff`);
 
 function mainRout(dir) {
   const rootDir = dir;
@@ -57,6 +58,17 @@ function mainRout(dir) {
     );
     await res.json({ msg: result });
     debug(`commit end`);
+  });
+
+  router.get(`/:repositoryId/tree/:commitHash?/:pathFromUrl?`, async (req, res) => {
+    debug(`repository staff start`);
+    const { repositoryId, commitHash, pathFromUrl } = req.params;
+    const dir = path.join(rootDir, `${repositoryId}.git`);
+    const innerPath = pathFromUrl ? `./${pathFromUrl}/` : `.`;
+    const hash = commitHash || `master`;
+    const result = await getStaff(dir, hash, innerPath);
+    await res.json({ msg: result });
+    debug(`repository staff end`);
   });
 
   return router;

@@ -1,9 +1,11 @@
 const express = require(`express`);
 const debug = require(`debug`)(`router: `);
+const path = require(`path`);
 const router = express.Router();
 const main = require(`./main`);
 const create = require(`./create`);
 const deleteRepository = require(`./delete`);
+const { getCommits } = require(`./commits`);
 
 function mainRout(dir) {
   const rootDir = dir;
@@ -13,7 +15,7 @@ function mainRout(dir) {
     const { body } = req;
     if (!repositoryId || !body || !body.url) {
       res.statusCode = 400;
-      return res.end(`bad request`)
+      return res.end(`bad request`);
     }
     const msg = await create(repositoryId, body.url, rootDir);
     res.end(msg);
@@ -25,7 +27,7 @@ function mainRout(dir) {
     const { repositoryId } = req.params;
     if (!repositoryId) {
       res.statusCode = 400;
-      return res.end(`bad request`)
+      return res.end(`bad request`);
     }
     const msg = await deleteRepository(repositoryId, rootDir);
     res.end(msg);
@@ -37,9 +39,13 @@ function mainRout(dir) {
   router.get(`/:repositoryId/commits/:commitHash`, async (req, res) => {
     debug(`commit start`);
     const { repositoryId, commitHash } = req.params;
-    res.write(`fist part ${new Date()} \n`);
-    await new Promise(res => setTimeout(() => res(), 1000));
-    res.end(`end part ${repositoryId} ${commitHash} ${new Date()}`);
+    // res.write(`fist part ${new Date()} \n`);
+    const result = await getCommits(
+      path.join(rootDir, repositoryId),
+      commitHash
+    );
+    // await new Promise(res => setTimeout(() => res(), 1000));
+    await res.json({ msg: result });
     debug(`commit end`);
   });
 

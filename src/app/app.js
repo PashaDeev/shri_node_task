@@ -7,7 +7,7 @@ const { router } = require(`./routes`);
 
 programm.parse(process.argv);
 
-const ROOT_DIR = programm.dir;
+const ROOT_DIR = programm.dir || '/Users/paveldeev/home_projects/shri/resolve_git';
 const app = express();
 
 app.get(`/`, async (req, res) => {

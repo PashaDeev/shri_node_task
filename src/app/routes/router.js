@@ -5,7 +5,8 @@ const main = require(`./main`);
 const create = require(`./create`);
 const deleteRepository = require(`./delete`);
 
-function mainRout() {
+function mainRout(dir) {
+  const rootDir = dir;
   router.post(`/:repositoryId`, async (req, res) => {
     debug(`create start`);
     const { repositoryId } = req.params;
@@ -14,7 +15,7 @@ function mainRout() {
       res.statusCode = 400;
       return res.end(`bad request`)
     }
-    const msg = await create(repositoryId, body.url);
+    const msg = await create(repositoryId, body.url, rootDir);
     res.end(msg);
     debug(`create end`);
   });
@@ -26,7 +27,7 @@ function mainRout() {
       res.statusCode = 400;
       return res.end(`bad request`)
     }
-    const msg = await deleteRepository(repositoryId);
+    const msg = await deleteRepository(repositoryId, rootDir);
     res.end(msg);
     debug(`delete end`);
   });
@@ -45,4 +46,4 @@ function mainRout() {
   return router;
 }
 
-module.exports = { router: mainRout() };
+module.exports = { router: mainRout };

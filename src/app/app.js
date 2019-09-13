@@ -2,7 +2,9 @@ const express = require("express");
 const fs = require(`fs-extra`);
 const path = require(`path`);
 const bodyParser = require("body-parser");
+const { router } = require(`./routes`);
 
+const ROOT_DIR = process.env.ROOT_DIR;
 const app = express();
 
 app.get(`/`, async (req, res) => {
@@ -19,8 +21,7 @@ app.use(bodyParser.urlencoded({
 }));
 
 app.use(bodyParser.json());;
-const { router } = require(`./routes`);
 
-app.use(`/api/repos`, router);
+app.use(`/api/repos`, router(ROOT_DIR));
 
 module.exports = app;

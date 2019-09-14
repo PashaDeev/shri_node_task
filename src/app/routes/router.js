@@ -37,7 +37,7 @@ function mainRout(dir) {
     debug(`delete end`);
   });
 
-  router.get(`/`, main);
+  router.get(`/`, main(rootDir));
 
   router.get(`/:repositoryId/commits/:commitHash`, async (req, res) => {
     debug(`commit start`);

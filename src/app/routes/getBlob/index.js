@@ -1,4 +1,4 @@
-const getBlob = require(`./getBlob`);
+const getBlob = require(`./rout`);
 
 module.exports = {
   getBlob

@@ -1,3 +1,5 @@
 const main = require(`./rout`);
 
-module.exports = main;
+module.exports = {
+  main
+};

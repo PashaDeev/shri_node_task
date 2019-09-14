@@ -6,17 +6,23 @@ const { err: errorDebug } = require(`../../debug`);
 async function getBlob(dir, hash, innerPath) {
   let res;
   try {
-    const out = await execFile(`git`, [`show`, `${hash}:${innerPath}`], { cwd: dir });
-    res = out.stdout;
+    res = await execFile(`git`, [`show`, `${hash}:${innerPath}`], {
+      cwd: dir
+    });
   } catch (err) {
     if (err.code === `ENOENT`) {
       errorDebug(`no directory`);
-      return `no directory`;
+      return { code: 400, msg: `no directory` };
     }
+
+    if (err.code === 128) {
+      return { code: 400, msg: err.stderr };
+    }
+
     errorDebug(err);
-    return `err`;
+    return { code: 500, msg: `err` };
   }
-  return res.trim();
+  return { code: 200, msg: res.stdout.trim() };
 }
 
 module.exports = getBlob;

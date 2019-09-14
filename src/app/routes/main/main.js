@@ -11,7 +11,9 @@ async function main(rootDir) {
   } catch (err) {
     errorDebug(`error for get ${err}`);
   }
-  return res.stdout.trim().split(`\n`);
+  return res.stdout.trim().split(`\n`).map((dir) => {
+    return dir.split(`.`)[0];
+  });
 }
 
 module.exports = main;

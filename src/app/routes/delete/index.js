@@ -1,3 +1,5 @@
-const deleteRepository = require('./delete');
+const deleteRepository = require('./rout');
 
-module.exports = deleteRepository;
+module.exports = {
+  deleteRepository
+};

@@ -1,4 +1,4 @@
-const getCommitDiff = require(`./getDiff`);
+const getCommitDiff = require(`./rout`);
 
 module.exports = {
   getCommitDiff

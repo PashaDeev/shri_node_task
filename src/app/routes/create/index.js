@@ -1,3 +1,5 @@
-const create = require(`./create`);
+const create = require(`./rout`);
 
-module.exports = create;
+module.exports = {
+  create
+};

@@ -6,9 +6,10 @@ async function deleteRepository(id, rootDir) {
   try {
     await fs.remove(path.join(rootDir, `${id}.git`));
   } catch (err) {
-    errorDebug('error in delete');
+    errorDebug(`error in delete ${err}`);
+    return `400`;
   }
-  return `delete ${id}`
+  return `200`
 }
 
 module.exports = deleteRepository;

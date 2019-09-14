@@ -1,4 +1,4 @@
-const getCommits = require(`./commits`);
+const getCommits = require(`./rout`);
 
 module.exports = {
   getCommits

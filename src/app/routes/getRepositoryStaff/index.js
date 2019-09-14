@@ -1,4 +1,4 @@
-const getStaff = require(`./getStaff`);
+const getStaff = require(`./rout`);
 
 module.exports = {
   getStaff

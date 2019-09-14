@@ -8,6 +8,7 @@ const deleteRepository = require(`./delete`);
 const { getCommits } = require(`./commits`);
 const { getCommitDiff } = require(`./commitDiff`);
 const { getStaff } = require(`./getRepositoryStaff`);
+const { getBlob } = require(`./getBlob`);
 
 function mainRout(dir) {
   const rootDir = dir;
@@ -60,16 +61,35 @@ function mainRout(dir) {
     debug(`commit end`);
   });
 
-  router.get(`/:repositoryId/tree/:commitHash?/:pathFromUrl?`, async (req, res) => {
-    debug(`repository staff start`);
-    const { repositoryId, commitHash, pathFromUrl } = req.params;
-    const dir = path.join(rootDir, `${repositoryId}.git`);
-    const innerPath = pathFromUrl ? `./${pathFromUrl}/` : `.`;
-    const hash = commitHash || `master`;
-    const result = await getStaff(dir, hash, innerPath);
-    await res.json({ msg: result });
-    debug(`repository staff end`);
-  });
+  router.get(
+    `/:repositoryId/tree/:commitHash?/:pathFromUrl?`,
+    async (req, res) => {
+      debug(`repository staff start`);
+      const { repositoryId, commitHash, pathFromUrl } = req.params;
+      const dir = path.join(rootDir, `${repositoryId}.git`);
+      const innerPath = pathFromUrl ? `./${pathFromUrl}/` : `.`;
+      const hash = commitHash || `master`;
+      const result = await getStaff(dir, hash, innerPath);
+      await res.json({ msg: result });
+      debug(`repository staff end`);
+    }
+  );
+
+  router.get(
+    `/:repositoryId/blob/:commitHash/:pathToFile*`,
+    async (req, res) => {
+      debug(`get blob start`);
+
+      const { repositoryId, commitHash, pathToFile } = req.params;
+      const dir = path.join(rootDir, `${repositoryId}.git`);
+      const innerPath = pathToFile ? `${pathToFile}${req.params[0]}` : `.`;
+      const hash = commitHash || `master`;
+      const result = await getBlob(dir, hash, innerPath);
+      await res.json({ msg: result });
+
+      debug(`get blob end`);
+    }
+  );
 
   return router;
 }

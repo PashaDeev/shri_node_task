@@ -5,9 +5,14 @@ const path = require(`path`);
 const bodyParser = require("body-parser");
 const { router } = require(`./routes`);
 
+programm.option(`-d, --dir <name>`, 'dir for git repos')
+
 programm.parse(process.argv);
 
-const ROOT_DIR = programm.dir || '/Users/paveldeev/home_projects/shri/resolve_git';
+const ROOT_DIR = programm.dir || path.join(__dirname, '..', '..', `..`, `resolve_git`);
+console.log(`-------------------------`);
+console.log(`root`, ROOT_DIR);
+console.log(`-------------------------`);
 const app = express();
 
 app.get(`/`, async (req, res) => {

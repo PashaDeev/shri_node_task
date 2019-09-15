@@ -12,7 +12,10 @@ function createRepository(rootDir) {
       return res.end(`bad request`);
     }
     const pathToDir = `${path.join(rootDir, repositoryId)}.git`;
-    const response = await create(pathToDir, body.url, rootDir);
+    let resolve;
+    const promise = new Promise(res => resolve = res);
+    create(pathToDir, body.url, rootDir, resolve);
+    const response = await promise;
     res.statusCode = response.code;
     await res.json(response);
     debug(`create end`);

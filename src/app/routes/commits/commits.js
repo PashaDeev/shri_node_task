@@ -3,7 +3,7 @@ const childProcess = require(`child_process`);
 const execFile = util.promisify(childProcess.execFile);
 const { err: errorDebug } = require(`../../debug`);
 
-async function getCommits(directory, hash) {
+async function getCommits(directory, hash, start = 0, count = 10) {
   let res;
   try {
     res = await execFile(
@@ -21,6 +21,7 @@ async function getCommits(directory, hash) {
   const commitArray = res.stdout
     .trim()
     .split(`\n`)
+    .slice(Number(start), Number(start) + Number(count))
     .map(commit => {
       const [commitHash, date, name] = commit.split(`|`);
       return {

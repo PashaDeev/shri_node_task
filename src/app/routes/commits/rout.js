@@ -8,7 +8,9 @@ function routWrapper(rootDir) {
     const { repositoryId, commitHash } = req.params;
     const result = await getCommits(
       path.join(rootDir, repositoryId),
-      commitHash
+      commitHash,
+      req.query.start,
+      req.query.count
     );
     res.statusCode = result.code;
     await res.json(result);

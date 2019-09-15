@@ -6,6 +6,7 @@ const spawn = childProcess.spawn;
 const { err: errorDebug } = require(`../../debug`);
 
 async function create(repositoryId, url, pathToDir, promiseResovle) {
+  let timeout;
   try {
     const process = spawn(`git`, [`clone`, `--bare`, url, repositoryId]);
     process.on(`exit`, () => {
@@ -14,9 +15,12 @@ async function create(repositoryId, url, pathToDir, promiseResovle) {
       promiseResovle({code: 200})
     });
     process.stderr.on(`data`, (data) => {
-      promiseResovle({code: 400, msg: data.toString()})
+      if (data.toString().match(`fatal`)) {
+        promiseResovle({code: 400, msg: data.toString()});
+        clearTimeout(timeout);
+      }
     });
-    setTimeout(() => {
+    timeout = setTimeout(() => {
       promiseResovle({code: 500, msg: `err`});
       process.kill()
     }, 20000);

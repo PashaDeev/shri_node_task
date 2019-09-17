@@ -1,0 +1,22 @@
+{
+  "name": "front",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "dev": "parcel ./src/index.html --out-dir ./build/",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "parcel-bundler": "1.12.3",
+    "postcss-preset-env": "6.7.0"
+  },
+  "devDependencies": {
+    "postcss": "7.0.18",
+    "posthtml": "0.11.6",
+    "posthtml-include": "1.2.0"
+  }
+}

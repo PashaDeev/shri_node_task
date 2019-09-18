@@ -1,4 +1,14 @@
 
 .header {
-  color: var(--text-color-pramary);
+  display: flex;
+  align-items: center;
+
+  width: 360px;
+  margin: 0 auto;
+
+  box-sizing: border-box;
+}
+
+.header__logo {
+  margin-right: 26px;
 }

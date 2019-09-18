@@ -1,0 +1,20 @@
+@import "./_align/_center.css";
+
+@import "./_size/_s.css";
+@import "./_size/_m.css";
+@import "./_size/_l.css";
+@import "./_size/_xl.css";
+
+@import "./_view/_primary.css";
+@import "./_view/_secondary.css";
+@import "./_view/_ghost.css";
+@import "./_view/_link.css";
+
+@import "./_height/_normal.css";
+
+@import "./_weight/_normal.css";
+@import "./_weight/_bold.css";
+
+:root {
+  font-family: Arial, sans-serif;
+}

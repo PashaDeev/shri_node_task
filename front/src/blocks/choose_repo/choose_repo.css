@@ -1,0 +1,10 @@
+.choose-repo {
+  position: relative;
+  min-height: 15px;
+}
+
+.choose-repo__list {
+  position: absolute;
+  left: 0;
+  top: 0;
+}

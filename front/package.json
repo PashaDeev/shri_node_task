@@ -5,14 +5,16 @@
   "main": "index.js",
   "scripts": {
     "dev": "parcel ./src/index.html --out-dir ./build/",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "parcel .src/blocks/logo/logo.html --out-dir ./build/"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "content": "^4.0.6",
     "parcel-bundler": "1.12.3",
-    "postcss-preset-env": "6.7.0"
+    "postcss-preset-env": "6.7.0",
+    "theme": "^0.1.0"
   },
   "devDependencies": {
     "postcss": "7.0.18",

@@ -1,3 +1,5 @@
+@import "./__branch-list/__branch-list.css";
+
 .repository {
   box-sizing: border-box;
 }

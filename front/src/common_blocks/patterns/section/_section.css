@@ -7,3 +7,6 @@
 @import "./_border/_color/_red.css";
 @import "./_border/_color/_gray.css";
 @import "./_border/_color/_ghost.css";
+
+@import "./_indent-b/_xs.css";
+@import "./_indent-b/_s.css";

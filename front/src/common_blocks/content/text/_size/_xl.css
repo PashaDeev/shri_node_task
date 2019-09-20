@@ -2,3 +2,10 @@
   font-size: var(--font-size-xl);
   line-height: var(--line-height-xl);
 }
+
+@media (--large-device) {
+  .text_size_xl {
+    font-size: var(--font-size-xxl);
+    line-height: var(--lin-height-xxl);
+  }
+}

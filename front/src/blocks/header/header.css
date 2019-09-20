@@ -3,7 +3,7 @@
   display: flex;
   align-items: center;
 
-  width: 360px;
+  /*width: 360px;*/
   margin: 0 auto;
 
   box-sizing: border-box;
@@ -12,3 +12,19 @@
 .header__logo {
   margin-right: 26px;
 }
+
+@media all {
+
+}
+
+@media (--large-device) {
+  .header__logo {
+    margin-right: 40px;
+  }
+
+}
+/*@media (min-width: 1440px) {*/
+/*  .header__logo {*/
+/*    margin-right: 40px;*/
+/*  }*/
+/*}*/

@@ -1,0 +1,6 @@
+:root {
+  --screen-l: 1140px;
+  --screen-s: 1140px;
+}
+
+@custom-media --large-device (width > 1440px);

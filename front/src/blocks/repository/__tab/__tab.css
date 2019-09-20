@@ -1,0 +1,20 @@
+.repository__tab-bar  {
+  display: flex;
+}
+
+.repository__tab-form {
+  display: flex;
+}
+
+.repository__radio-button {
+  display: none;
+}
+
+.repository__radio-button:checked ~ .repository__tab-item {
+  background: greenyellow;
+}
+
+.repository__tab-item {
+  display: block;
+  margin-right: var(--space-xxl);
+}

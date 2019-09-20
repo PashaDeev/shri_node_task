@@ -1,0 +1,10 @@
+.footer {
+  display: none;
+  padding-left: var(--space-m);
+}
+
+@media (--large-device) {
+  .footer {
+    display: block;
+  }
+}

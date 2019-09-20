@@ -1,0 +1,5 @@
+.text_size_xxl {
+  font-size: var(--font-size-xxl);
+  line-height: var(--lin-height-xxl);
+}
+

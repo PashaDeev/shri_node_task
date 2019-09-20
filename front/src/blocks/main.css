@@ -3,3 +3,4 @@
 @import "./choose_repo/choose_repo.css";
 @import "./repository/main.css";
 @import "./__commit-hash.css";
+@import "./footer/footer.css";

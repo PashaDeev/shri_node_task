@@ -4,6 +4,7 @@
 @import "./_size/_m.css";
 @import "./_size/_l.css";
 @import "./_size/_xl.css";
+@import "./_size/_xxl.css";
 
 @import "./_view/_primary.css";
 @import "./_view/_secondary.css";
@@ -15,6 +16,8 @@
 
 @import "./_weight/_normal.css";
 @import "./_weight/_bold.css";
+
+@import "./_transform/_uppercase.css";
 
 :root {
   font-family: Arial, sans-serif;

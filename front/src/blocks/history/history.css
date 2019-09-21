@@ -1,0 +1,103 @@
+.history {
+
+}
+
+.history__block {
+
+}
+
+.history__date {
+
+}
+
+.history__list {
+  position: relative;
+
+  padding: 0;
+  margin: 0;
+  padding-left: 52px;
+
+  list-style: none;
+}
+
+.history__item {
+  position: relative;
+
+  &::before {
+    content: "";
+
+    position: absolute;
+    left: -13px;
+
+    transform: translate(-100%);
+
+    width: 40px;
+    height: 40px;
+
+    background: url("./img/history-icon.svg") no-repeat center;
+  }
+
+  &::after {
+    content: "";
+
+    position: absolute;
+    left: -34px;
+    top: 42px;
+
+    width: 2px;
+    height: 56%;
+
+    background: var(--color-gray);
+    border-radius: 5px;
+  }
+
+}
+
+.history__title {
+
+}
+
+.history__link {
+  position: absolute;
+  right: 0;
+  top: 0;
+
+  width: 16px;
+  height: 16px;
+
+  background: url("./img/history-link-icon.svg") no-repeat center;
+
+  cursor: pointer;
+}
+
+.history__committer {
+  color: var(--text-color-thirty);
+}
+
+.history__commit-data {
+  color: var(--text-color-thirty);
+}
+
+.history__double-hash {
+  display: none;
+
+  text-decoration: none;
+
+  cursor: pointer;
+}
+
+@media (--large-device) {
+  .history__item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .history__double-hash {
+    display: block;
+  }
+
+  .history__link {
+    position: relative;
+  }
+}

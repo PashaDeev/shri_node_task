@@ -29,13 +29,11 @@
 
 .table__content {
   position: relative;
-  /*display: table-row-group;*/
 }
 
 .table__name {
   display: block;
   position: relative;
-  margin-right: 100%;
 
   font-weight: bold;
 
@@ -184,7 +182,7 @@
   .table__name {
     position: relative;
     padding-left: 20px;
-    margin-right: 100%;
+    //margin-right: 100%;
 
     font-weight: bold;
   }

@@ -1,5 +1,15 @@
 .repository__name {
   padding-left: 20px;
+
+  text-decoration: none;
+
+  cursor: pointer;
+}
+
+.repository__link {
+  text-decoration: none;
+
+  cursor: pointer;
 }
 
 .repository__name::before {
@@ -15,5 +25,15 @@
   width: 12px;
   height: 20px;
 
+}
+
+.repository__name_type_dir::before {
   background: url("./img/folder.svg") no-repeat center;
+}
+
+.repository__name_type_file {
+  background: url("./img/file-icon.svg") no-repeat left center;
+}
+
+.repository__name::before {
 }

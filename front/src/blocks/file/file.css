@@ -1,0 +1,43 @@
+.file {
+}
+
+.file__header {
+  display: flex;
+  justify-content: flex-start;
+
+  background-color: var(--color-gray-ghost);
+  border-radius: 5px 5px 0 0;
+}
+
+.file__name {
+  position: relative;
+
+  padding-left: 17px;
+  margin-right: var(--space-xxs);
+
+  &::before {
+    content: "";
+
+    position: absolute;
+    left: 0;
+    top: -1px;
+
+    width: 9px;
+    height: 20px;
+    background: url("./img/file-icon.svg") no-repeat center;
+  }
+}
+
+.file__code-section {
+  padding-left: var(--space-m);
+  padding-top: var(--space-xs);
+
+  overflow: scroll;
+}
+
+@media (--large-device) {
+  .file__code-section {
+    border: 1px solid var(--color-gray);
+    border-top: none;
+  }
+}

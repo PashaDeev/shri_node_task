@@ -7,11 +7,12 @@
   --bg-color-common: #fff;
   --bg-color-accent: #4F4F4F;
 
-  --border-color-common: #E5E5E5;
+  --accent-color: #FF3029;
+  --color-gray: #E5E5E5;
+  --color-gray-ghost: #F5F5F5;
+
+  --border-color-common: var(--color-gray);
   --border-color-light: #F0F2F3;
   --border-color-purple: #9A77FF;
   --border-color-gray: #B8BEC3;
-
-  --accent-color: #FF3029;
-  --color-gray: #E5E5E5;
 }

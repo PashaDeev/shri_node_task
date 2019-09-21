@@ -2,4 +2,4 @@
 @import "./table/table.css";
 @import "./dropdown_list/dropdown_list.css";
 @import "./tab-bar/tab-bar.css";
-@import "./bread-crumbs/bread-crumbs.css";
+@import "../../blocks/bread-crumbs/bread-crumbs.css";

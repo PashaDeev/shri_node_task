@@ -1,0 +1,86 @@
+<section class="file section_visibility_invisible">
+  <header class="file__header section_space-v_s section_space-h_m section_border_all section_border-color_gray">
+    <div class="file__name">ya.make</div>
+    <div class="file__size text_view_ghost">(4374 bytes)</div>
+  </header>
+  <div class="file__code-section">
+    <code>
+      constjp=require(`json-to-ast`);construles=require(`./rules`);constAst=require(`./utils/ast`);constTraveller=require("./Traveller");
+
+      class Linter {
+      constructor(bemJsonString) {
+      const ast = jp(bemJsonString);
+      this.ast = new Ast(ast);
+      this.nodeQueue = [];
+      this.errors = [];
+      this.rules = {};
+      this.rulesContext = {};
+
+      createRules.call(this);
+      createRulesContext.call(this);
+      }
+
+      run() {
+      const self = this;
+      Traveller.run(this.ast, {
+      enter(node) {
+      self.nodeQueue.push(node);
+      }
+      });
+
+      if (this.rules[`all`]) {
+      this.rules[`all`].forEach(rule => rule.verify(this.nodeQueue));
+      }
+      this.nodeQueue.forEach(node => {
+      const types = node.type;
+      for (const type of types) {
+      if (this.rules[type]) {
+      this.rules[type].forEach(rule => {
+      rule.verify(node);
+      });
+      }
+      }
+      });
+      return this.errors;
+      }
+
+      reporter(report) {
+      this.errors.push(errTemplate(report));
+      }
+      }
+
+      function createRules() {
+      Object.keys(rules).forEach(ruleName => {
+      const ruleObject = rules[ruleName].create(this.rulesContext);
+      if (!this.rules[ruleObject.meta.type]) {
+      this.rules[ruleObject.meta.type] = [];
+      }
+      this.rules[ruleObject.meta.type].push(ruleObject);
+      });
+      }
+
+      function createRulesContext() {
+      this.rulesContext.reporter = this.reporter.bind(this);
+      }
+
+      function errTemplate({ code, error, location }) {
+      if (!code || !error || !location) {
+      throw new Error(`report must be content code, error and location keys`);
+      }
+      return {
+      code,
+      error,
+      location
+      };
+      }
+
+      module.exports = function(bemJsonString) {
+      if (typeof bemJsonString !== `string`) {
+      throw new Error(`input bem json must be string`);
+      }
+      const instance = new Linter(bemJsonString);
+      return instance.run();
+      };
+    </code>
+  </div>
+</section>

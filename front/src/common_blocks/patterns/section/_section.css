@@ -4,9 +4,28 @@
 
 @import "./_border/_bottom-m.css";
 @import "./_border/_bottom-s.css";
+@import "./_border/_all.css";
 @import "./_border/_color/_red.css";
 @import "./_border/_color/_gray.css";
 @import "./_border/_color/_ghost.css";
 
 @import "./_indent-b/_xs.css";
 @import "./_indent-b/_s.css";
+@import "./_indent-b/_m.css";
+
+@import "./_visibility/_invisible.css";
+
+.section {
+
+}
+
+.section__small-wrapper {
+
+}
+
+@media (--large-device) {
+  .section__small-wrapper {
+    padding-left: var(--space-m);
+    padding-right: var(--space-m);
+  }
+}

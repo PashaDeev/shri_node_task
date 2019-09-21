@@ -1,0 +1,21 @@
+.choose-branch {
+
+}
+
+.branch-item_current {
+  color: var(--text-color-ghost);
+}
+
+.branch-list_active {
+
+}
+
+.branch-item_current {
+  font-size: var(--font-size-xl);
+}
+
+
+.branch-list:hover .repository__branch-item_current {
+  color: var(--text-color-primary);
+  font-size: inherit;
+}

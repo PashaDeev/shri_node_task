@@ -1,5 +1,6 @@
 @import "./__branch-list/__branch-list.css";
 @import "./__dir-list/__dir-list.css";
+@import "./__choose-branch/__choose_branch.css";
 
 .repository {
   box-sizing: border-box;

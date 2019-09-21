@@ -1,0 +1,8 @@
+.repository__bread-crumbs {
+}
+
+.repository__crumb {
+  text-decoration: none;
+
+  cursor: pointer;
+}

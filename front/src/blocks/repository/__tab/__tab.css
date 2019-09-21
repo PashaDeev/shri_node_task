@@ -17,4 +17,10 @@
 .repository__tab-item {
   display: block;
   margin-right: var(--space-xxl);
+
+  cursor: pointer;
+}
+
+.repository__tab-item_state_current {
+  cursor: auto;
 }

@@ -1,8 +1,8 @@
-.repository__branch-name {
+.repository__name {
   padding-left: 20px;
 }
 
-.repository__branch-name::before {
+.repository__name::before {
   content: "";
 
   position: absolute;
@@ -15,5 +15,5 @@
   width: 12px;
   height: 20px;
 
-  background: url("./img/branch-icon.svg") no-repeat center;
+  background: url("./img/folder.svg") no-repeat center;
 }

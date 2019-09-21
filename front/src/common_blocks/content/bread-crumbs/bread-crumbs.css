@@ -1,0 +1,12 @@
+.bread-crumbs {
+}
+
+.bread-crumbs__crumb {
+  text-decoration: none;
+
+  cursor: pointer;
+}
+
+.bread-crumbs__crumb_state_current {
+  cursor: auto;
+}

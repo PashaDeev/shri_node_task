@@ -4,8 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "dev": "parcel ./src/index.html --out-dir ./build/",
-    "test": "parcel .src/blocks/logo/logo.html --out-dir ./build/"
+    "dir": "parcel ./src/files_list.html --out-dir ./build/",
+    "file": "parcel ./src/file_details.html --out-dir ./build/"
   },
   "keywords": [],
   "author": "",

@@ -1,0 +1,14 @@
+.tab-bar  {
+  display: flex;
+}
+
+.tab-bar__item {
+  display: block;
+  margin-right: var(--space-xxl);
+
+  cursor: pointer;
+}
+
+.tab-bar__item_state_current {
+  cursor: auto;
+}

@@ -1,7 +1,7 @@
-.dir {
+.table {
 }
 
-.dir__row {
+.table__row {
   display: flex;
   flex-wrap: wrap;
   padding-left: 0;
@@ -10,32 +10,31 @@
   list-style: none;
 }
 
-.dir__column {
+.table__column {
 }
 
-.dir__item {
+.table__item {
 }
 
-.dir__header {
+.table__header {
   display: none;
   list-style: none;
   padding: 0;
   margin: 0;
 }
 
-.dir__footer {
+.table__footer {
   display: none;
 }
 
-.dir__content {
+.table__content {
   position: relative;
   /*display: table-row-group;*/
 }
 
-.dir__name {
+.table__name {
   display: block;
   position: relative;
-  padding-left: 20px;
   margin-right: 100%;
 
   font-weight: bold;
@@ -43,28 +42,14 @@
   order: 1;
 }
 
-.dir__name::before {
-  content: "";
-
-  position: absolute;
-  left: 0;
-  top: -1px;
-
-  display: block;
-  width: 12px;
-  height: 20px;
-
-  background: url("./img/folder.svg") no-repeat center;
-}
-
-.dir__hash {
+.table__hash {
   color: var(--text-color-link);
 
   margin-right: var(--space-xs);
   order: 3;
 }
 
-.dir__message {
+.table__message {
   order: 2;
 
   white-space: nowrap;
@@ -76,16 +61,16 @@
   display: block;
 }
 
-.dir__committer {
+.table__committer {
   margin-right: 4px;
   order: 4;
 }
 
-.dir__date {
+.table__date {
   order: 5;
 }
 
-.dir__link {
+.table__link {
   position: absolute;
   right: 0;
   top: 50%;
@@ -99,17 +84,17 @@
   background: url("./img/link_arrow.svg") no-repeat right center;
 }
 
-.dir_view_short {
+.table_view_short {
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
   padding-top: var(--space-xxs);
 
-  & .dir__item {
+  & .table__item {
     margin: 0;
   }
 
-  & .dir__row {
+  & .table__row {
     width: 160px;
     margin-top: var(--space-xs);
     padding-left: var(--space-m);
@@ -119,84 +104,84 @@
     border-radius: 5px;
   }
 
-  & .dir__row:first-child {
+  & .table__row:first-child {
     //margin-top: var(--space-s);
   }
 
-  & .dir__hash {
+  & .table__hash {
     display: none;
   }
 
-  & .dir__message {
+  & .table__message {
     display: none;
   }
 
-  & .dir__committer {
+  & .table__committer {
     display: none;
   }
 
-  & .dir__date {
+  & .table__date {
     display: none;
   }
 
-  & .dir__link {
+  & .table__link {
     display: none;
   }
 }
 
-.dir__row_time_old {
+.table__row_time_old {
   border-bottom: 2px solid var(--border-color-gray);
 }
 
-.dir__row_time_recent {
+.table__row_time_recent {
   border-bottom: 2px solid var(--border-color-purple);
 }
 
 @media (--large-device) {
-  .dir {
+  .table {
     display: table;
     width: 100%;
   }
 
-  .dir__row {
+  .table__row {
     display: table-row;
 
     text-decoration: none;
   }
 
-  .dir__column {
+  .table__column {
     display: table-column;
   }
 
-  .dir__item {
+  .table__item {
     display: table-cell;
     border-bottom: 1px solid var(--color-gray);
     padding-top: var(--space-m);
     padding-bottom: var(--space-m);
   }
 
-  .dir__header {
+  .table__header {
     display: table-header-group;
     list-style: none;
     padding: 0;
     margin: 0;
   }
 
-  .dir__footer {
+  .table__footer {
     display: table-footer-group;
     padding-top: var(--space-s);
     padding-bottom: var(--space-s);
   }
 
-  .dir__item_position_footer {
+  .table__item_position_footer {
     border-bottom: none;
   }
 
-  .dir__content {
+  .table__content {
     display: table-row-group;
   }
 
-  .dir__name {
+  .table__name {
     position: relative;
     padding-left: 20px;
     margin-right: 100%;
@@ -204,37 +189,20 @@
     font-weight: bold;
   }
 
-  .dir__name::before {
-    content: "";
-
-    position: absolute;
-    left: 0;
-    top: 50%;
-    transform: translateY(-50%);
-
-    /*transform: translate(-100%);*/
-
-    display: block;
-    width: 12px;
-    height: 20px;
-
-    background: url("./img/folder.svg") no-repeat center;
-  }
-
-  .dir__hash {
+  .table__hash {
     color: var(--text-color-link);
   }
 
-  .dir__message {
+  .table__message {
   }
 
-  .dir__committer {
+  .table__committer {
   }
 
-  .dir__date {
+  .table__date {
   }
 
-  .dir__link {
+  .table__link {
     display: none;
   }
 }

@@ -1,8 +1,0 @@
-@import "./__col/__col.css";
-@import "./__row/__row.css";
-@import "./__header/__header.css";
-@import "./__header-group/__header-group.css";
-
-.table {
-  display: table;
-}

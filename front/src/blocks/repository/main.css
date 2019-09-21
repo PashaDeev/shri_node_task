@@ -1,7 +1,17 @@
 @import "./__branch-list/__branch-list.css";
-@import "./__tab/__tab.css";
-@import "./__bread-crumbs/__bread-cumbs.css";
+@import "./__dir-list/__dir-list.css";
 
 .repository {
   box-sizing: border-box;
+}
+
+.repository__list-wrapper {
+  width: 100%;
+}
+
+.repository__list_status_invisible {
+  display: none;
+}
+
+.repository__list_status_visible {
 }

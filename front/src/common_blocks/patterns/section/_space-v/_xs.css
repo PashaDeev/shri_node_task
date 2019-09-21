@@ -1,0 +1,4 @@
+.section_space-v_xs {
+  padding-top: var(--space-xs);
+  padding-bottom: var(--space-xs);
+}

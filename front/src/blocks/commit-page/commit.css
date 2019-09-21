@@ -1,0 +1,84 @@
+.commit__wrapper {
+}
+
+.commit__back {
+  position: relative;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  padding-left: 15px;
+  margin-bottom: var(--space-s);
+
+  text-decoration: none;
+
+  &::before {
+    content: "";
+
+    position: absolute;
+    left: 0;
+    top: 50%;
+
+    transform: translateY(-55%);
+
+    width: 9px;
+    height: 12px;
+
+    background: url("./img/back-icon.svg") no-repeat center;
+  }
+}
+
+.commit__to-commit {
+  position: relative;
+
+  padding-left: 30px;
+  border-radius: 4px;
+
+  background-color: var(--color-gray);
+
+  &::before {
+    content: "";
+
+    position: absolute;
+    left: 12px;
+    top: 50%;
+
+    transform: translateY(-50%);
+
+    width: 12px;
+    height: 12px;
+
+    background: url("./img/burger-icon.svg") no-repeat center;
+  }
+}
+
+.commit__info {
+  line-height: 140%;
+}
+
+.commit__code-wrapper {
+  background-color: var(--color-gray-ghost);
+  margin: 0 auto;
+
+  border-radius: 5px 5px 0 0;
+}
+
+@media (--large-device) {
+  .commit__wrapper {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+  }
+
+  .commit__back {
+    order: 2;
+
+    &::before {
+      background: none;
+    }
+  }
+
+  .commit__back-icon {
+    display: none;
+  }
+}

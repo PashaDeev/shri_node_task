@@ -9,7 +9,7 @@
 
 #### Ссылки на страницы
 
-[localhost:1234/](localhost:1234/) : __1.1__ Список файлов в директории
+[localhost:1234/](http://localhost:1234/): __1.1__ Список файлов в директории
     __2.1__ Кликнуть на таб 'branches'
 [localhost:1234/file_details.html](http://localhost:1234/file_details.html): __1.5__ Просмотр деталей файла
     __1.6__ Кликнуть на таб 'history'
